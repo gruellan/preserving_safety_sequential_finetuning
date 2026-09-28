@@ -1,0 +1,92 @@
+{
+  "order_name": "order_1_derpp_b150_seed44",
+  "base_model": "mistralai/Mistral-7B-Instruct-v0.2",
+  "selected_layer": 16,
+  "pos": -1,
+  "harmful": "orbench_toxic",
+  "harmless": "xstest",
+  "ablate_prompts": "heldout",
+  "seed": 42,
+  "checkpoints": [
+    {
+      "checkpoint": "M0_base",
+      "layer": 16,
+      "magnitude": 2.8876543045043945,
+      "cos_to_base": 1.0,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9739149704575538,
+        0.9914960622787475
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.7166666666666667,
+        "refusal_ablate_m0_dir": 0.4166666666666667,
+        "refusal_ablate_own_dir": 0.4166666666666667,
+        "frac_removed_m0_dir": 0.41860465116279066,
+        "frac_removed_own_dir": 0.41860465116279066,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M1_after_code",
+      "layer": 16,
+      "magnitude": 2.8949193954467773,
+      "cos_to_base": 0.9787883758544922,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9557757779955864,
+        0.9709626793861389
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.95,
+        "refusal_ablate_m0_dir": 0.7166666666666667,
+        "refusal_ablate_own_dir": 0.6833333333333333,
+        "frac_removed_m0_dir": 0.24561403508771926,
+        "frac_removed_own_dir": 0.28070175438596484,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M2_after_sum",
+      "layer": 16,
+      "magnitude": 2.847472667694092,
+      "cos_to_base": 0.9740369319915771,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9476918280124664,
+        0.9665593653917313
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.95,
+        "refusal_ablate_m0_dir": 0.7,
+        "refusal_ablate_own_dir": 0.7,
+        "frac_removed_m0_dir": 0.2631578947368421,
+        "frac_removed_own_dir": 0.2631578947368421,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M3_after_qa",
+      "layer": 16,
+      "magnitude": 2.7932043075561523,
+      "cos_to_base": 0.9682762026786804,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9428338661789895,
+        0.9600221186876297
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.95,
+        "refusal_ablate_m0_dir": 0.7166666666666667,
+        "refusal_ablate_own_dir": 0.7,
+        "frac_removed_m0_dir": 0.24561403508771926,
+        "frac_removed_own_dir": 0.2631578947368421,
+        "n": 60
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# pip install torch==2.7.1 --index-url https://download.pytorch.org/whl/cu128
+#torch omitted below so pip install -r does not mess up the CUDA build
+
+transformers==4.44.2
+peft==0.10.0
+trl==0.8.6
+datasets==2.19.1
+accelerate==0.29.3
+safetensors==0.4.3
+evaluate==0.4.1
+rouge-score==0.1.2
+nltk==3.9.1
+mlflow==2.12.1
+pandas==2.2.1
+scipy==1.13.0
+scikit-learn
+pyyaml==6.0.1
+tqdm==4.66.2
+sentencepiece==0.2.0
+rouge
+tabulate
+fuzzywuzzy
+hf_transfer

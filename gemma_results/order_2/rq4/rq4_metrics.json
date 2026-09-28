@@ -1,0 +1,92 @@
+{
+  "order_name": "order_2",
+  "base_model": "google/gemma-2-9b-it",
+  "selected_layer": 21,
+  "pos": -5,
+  "harmful": "orbench_toxic",
+  "harmless": "xstest",
+  "ablate_prompts": "heldout",
+  "seed": 42,
+  "checkpoints": [
+    {
+      "checkpoint": "M0_base",
+      "layer": 21,
+      "magnitude": 123.3423080444336,
+      "cos_to_base": 1.0,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9807442426681519,
+        0.9922791242599487
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.9833333333333333,
+        "refusal_ablate_m0_dir": 0.2833333333333333,
+        "refusal_ablate_own_dir": 0.2833333333333333,
+        "frac_removed_m0_dir": 0.711864406779661,
+        "frac_removed_own_dir": 0.711864406779661,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M1_after_qa",
+      "layer": 21,
+      "magnitude": 111.32670593261719,
+      "cos_to_base": 0.976463794708252,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9537517830729485,
+        0.9696833074092865
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 1.0,
+        "refusal_ablate_m0_dir": 0.3,
+        "refusal_ablate_own_dir": 0.3333333333333333,
+        "frac_removed_m0_dir": 0.7,
+        "frac_removed_own_dir": 0.6666666666666667,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M2_after_sum",
+      "layer": 21,
+      "magnitude": 103.4909439086914,
+      "cos_to_base": 0.9477730989456177,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9190635845065117,
+        0.9429962456226348
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.9833333333333333,
+        "refusal_ablate_m0_dir": 0.35,
+        "refusal_ablate_own_dir": 0.5333333333333333,
+        "frac_removed_m0_dir": 0.6440677966101694,
+        "frac_removed_own_dir": 0.4576271186440678,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M3_after_code",
+      "layer": 21,
+      "magnitude": 96.94985961914062,
+      "cos_to_base": 0.9295729398727417,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.897763442993164,
+        0.9276119410991669
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.9666666666666667,
+        "refusal_ablate_m0_dir": 0.26666666666666666,
+        "refusal_ablate_own_dir": 0.4166666666666667,
+        "frac_removed_m0_dir": 0.7241379310344828,
+        "frac_removed_own_dir": 0.5689655172413793,
+        "n": 60
+      }
+    }
+  ]
+}

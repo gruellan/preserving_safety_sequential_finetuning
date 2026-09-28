@@ -1,0 +1,15 @@
+{
+    "order": [
+        "code",
+        "sum",
+        "qa"
+    ],
+    "model": "meta-llama/Meta-Llama-3-8B-Instruct",
+    "seed": 42,
+    "der": {
+        "variant": "der++",
+        "alpha": 0.0,
+        "beta": 1.0,
+        "buffer_path": "data/buf_s500_b150_a1.jsonl"
+    }
+}

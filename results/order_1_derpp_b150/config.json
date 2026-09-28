@@ -1,0 +1,15 @@
+{
+    "order": [
+        "code",
+        "sum",
+        "qa"
+    ],
+    "model": "mistralai/Mistral-7B-Instruct-v0.2",
+    "seed": 42,
+    "der": {
+        "variant": "der++",
+        "alpha": 1.0,
+        "beta": 1.0,
+        "buffer_path": "data/buf_s500_b150_a1.jsonl"
+    }
+}

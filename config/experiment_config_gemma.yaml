@@ -1,0 +1,32 @@
+model:
+  name: "google/gemma-2-9b-it"
+  bf16: true
+  max_seq_len: 8192
+  # gemma 2 applies tanh soft-capping to attention logits
+  # which sdpa skips, must use eage
+  attn_implementation: "eager"
+
+tasks:
+  code:
+    folder: "Py150"
+    max_train_samples: null
+    max_seq_len: 1024
+  sum:
+    folder: "20Minuten"
+    max_train_samples: null
+    max_seq_len: 2048
+  qa:
+    folder: "ScienceQA"
+    max_train_samples: null
+    max_seq_len: 1024
+
+  code1: { folder: "Py150", max_train_samples: null, max_seq_len: 1024 }
+  code2: { folder: "Py150", max_train_samples: null, max_seq_len: 1024 }
+  code3: { folder: "Py150", max_train_samples: null, max_seq_len: 1024 }
+
+paths:
+  trace_data_dir: "/workspace/TRACE-Benchmark/LLM-CL-Benchmark_5000"
+  output_dir: "/workspace/gemma_outputs"
+  checkpoints_dir: "/workspace/gemma_outputs/checkpoints"
+  mlflow_dir: "/workspace/gemma_outputs/mlflow"
+  teacher_logits_cache: "/workspace/gemma_outputs/teacher_logits_cache"

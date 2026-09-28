@@ -1,0 +1,92 @@
+{
+  "order_name": "order_1",
+  "base_model": "meta-llama/Meta-Llama-3-8B-Instruct",
+  "selected_layer": 12,
+  "pos": -5,
+  "harmful": "orbench_toxic",
+  "harmless": "xstest",
+  "ablate_prompts": "heldout",
+  "seed": 42,
+  "checkpoints": [
+    {
+      "checkpoint": "M0_base",
+      "layer": 12,
+      "magnitude": 2.771312952041626,
+      "cos_to_base": 1.0,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9830754145979881,
+        0.9938452333211899
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.9666666666666667,
+        "refusal_ablate_m0_dir": 0.3,
+        "refusal_ablate_own_dir": 0.3,
+        "frac_removed_m0_dir": 0.6896551724137931,
+        "frac_removed_own_dir": 0.6896551724137931,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M1_after_code",
+      "layer": 12,
+      "magnitude": 2.402602195739746,
+      "cos_to_base": 0.96356201171875,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.9399247869849205,
+        0.9609107464551926
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.8166666666666667,
+        "refusal_ablate_m0_dir": 0.13333333333333333,
+        "refusal_ablate_own_dir": 0.23333333333333334,
+        "frac_removed_m0_dir": 0.8367346938775511,
+        "frac_removed_own_dir": 0.7142857142857142,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M2_after_sum",
+      "layer": 12,
+      "magnitude": 2.2607970237731934,
+      "cos_to_base": 0.9231925010681152,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.8952483311295509,
+        0.9233866691589355
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.7166666666666667,
+        "refusal_ablate_m0_dir": 0.1,
+        "refusal_ablate_own_dir": 0.2,
+        "frac_removed_m0_dir": 0.8604651162790699,
+        "frac_removed_own_dir": 0.7209302325581395,
+        "n": 60
+      }
+    },
+    {
+      "checkpoint": "M3_after_qa",
+      "layer": 12,
+      "magnitude": 2.3524725437164307,
+      "cos_to_base": 0.889186680316925,
+      "n_harmful": 112,
+      "n_harmless": 112,
+      "cos_ci": [
+        0.8570402979850769,
+        0.8922365039587021
+      ],
+      "ablation_wildguard": {
+        "refusal_intact": 0.6,
+        "refusal_ablate_m0_dir": 0.11666666666666667,
+        "refusal_ablate_own_dir": 0.16666666666666666,
+        "frac_removed_m0_dir": 0.8055555555555555,
+        "frac_removed_own_dir": 0.7222222222222223,
+        "n": 60
+      }
+    }
+  ]
+}

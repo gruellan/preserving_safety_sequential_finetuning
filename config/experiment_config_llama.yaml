@@ -1,0 +1,28 @@
+model:
+  name: "meta-llama/Meta-Llama-3-8B-Instruct"
+  bf16: true
+  max_seq_len: 8192
+
+tasks:
+  code:
+    folder: "Py150" # subfolder name inside trace_data_dir
+    max_train_samples: null
+    max_seq_len: 1024   # Py150 code snippets are short (8192 causes OOM on 24 GB GPU)
+  sum:
+    folder: "20Minuten"
+    max_train_samples: null
+    max_seq_len: 2048   # article + summary, more tokens needed than QA
+  qa:
+    folder: "ScienceQA"
+    max_train_samples: null
+    max_seq_len: 1024   # science MCQ questions fit well in 1k tokens
+  code1: { folder: "Py150", max_train_samples: null, max_seq_len: 1024 }
+  code2: { folder: "Py150", max_train_samples: null, max_seq_len: 1024 }
+  code3: { folder: "Py150", max_train_samples: null, max_seq_len: 1024 }
+
+paths:
+  trace_data_dir: "/workspace/TRACE-Benchmark/LLM-CL-Benchmark_5000"
+  output_dir: "/workspace/llama_outputs"
+  checkpoints_dir: "/workspace/llama_outputs/checkpoints"
+  mlflow_dir: "/workspace/llama_outputs/mlflow"
+  teacher_logits_cache: "/workspace/llama_outputs/teacher_logits_cache"
