@@ -21,15 +21,17 @@ huggingface-cli download cais/HarmBench-Llama-2-13b-cls \
   --local-dir /workspace/models/HarmBench-Llama-2-13b-cls --local-dir-use-symlinks False
 ```
 
-The full TRACE dataset is not on GitHub or HuggingFace. Download it from [this link](https://drive.google.com/file/d/1S0SmU0WEw5okW_XvP2Ns0URflNzZq6sV/view) and point `config/experiment_config*.yaml` at it.
+The full TRACE dataset is not on GitHub or HuggingFace. Download it from [this link](https://drive.google.com/file/d/1S0SmU0WEw5okW_XvP2Ns0URflNzZq6sV/view) and point `config/experiment_config*.yaml` at it. Replace the matching `OUT` path in `scripts/run_experiment.sh` as well.
 
 ## Reproducing
 
 **1. Replay buffer** (ER/DER/DER++/Matched Plain):
 ```
-python data_processing/build_replay_buffer.py --output data/der_buffer_filtered.jsonl
+python data_processing/build_replay_buffer.py \
+    --output data/buf_s500_b150_a1.jsonl \
+    --n-harmful 350 --n-benign 150 --seed 42
 python data_processing/cache_teacher_logits.py \
-    --buffer-path data/der_buffer_filtered.jsonl \
+    --buffer-path data/buf_s500_b150_a1.jsonl \
     --output-dir /workspace/dissertation_outputs/teacher_logits_cache
 ```
 
@@ -37,8 +39,11 @@ python data_processing/cache_teacher_logits.py \
 ```
 bash scripts/run_experiment.sh <order_1..order_6> <mistral|llama|gemma> <plain|plain_matched|er|der|derpp>
 ```
+For replay runs, set `DER_BUFFER=data/buf_s500_b150_a1.jsonl` and set `TEACHER_CACHE` to the model-specific cache directory. The wrapper uses `--test` for short safety-evaluation smoke tests; remove those two flags in `scripts/run_experiment.sh` to run the full benchmarks.
 
 **3. SafeLoRA** (applied post-hoc on saved Plain adapters): `python -m training.safelora --help`
+
+SafeLoRA results used in the paper are in `results/safelora/rerun/eval_ex240/` (ASR) and `results/safelora/rerun/orr/` (ORR). The files directly under `results/safelora/` are preliminary runs.
 
 **4. Figures and statistics** (offline, no GPU required):
 ```
@@ -63,4 +68,3 @@ plots/           # paper figures
 ```
 
 Each run directory is named `order_<N>[_<method>_b150][_seed<K>]`. The metric JSONs behind every table and figure are included. Activation caches (`**/rq4_cache/*.npz`) are git-ignored due to large file sizes and can be regenerated via `python -m eval.rq4`. Model weights and raw training inputs are not included due to size.
-
